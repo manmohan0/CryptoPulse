@@ -4,7 +4,7 @@ import { createProxyMiddleware } from 'http-proxy-middleware';
 const app = express();
 
 app.use(cors({
-  origin: 'http://localhost:5173',
+  origin: process.env.NODE_ENV === "production" ? process.env.FRONTEND : 'http://localhost:5173',
   methods: ['GET', 'POST']
 }))
 
@@ -16,8 +16,8 @@ app.use('/binance', createProxyMiddleware({
   },
 }));
 
-const PORT = process.env.PORT || 3000;
+const port = process.env.PORT || 3000;
 
-app.listen(PORT, () => {
-  console.log(`Server listening at http://localhost:${PORT}`);
+app.listen(port, () => {
+  console.log(`Server listening at http://localhost:${port}`);
 });
