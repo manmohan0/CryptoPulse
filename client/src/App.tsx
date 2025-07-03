@@ -21,7 +21,7 @@ function App() {
   const chartDataRef = useRef<{ time: UTCTimestamp; open: number, high: number, low: number, close: number }[] | null>(null);
 
   const getHistoricalPrices = async (symbol: string, timeframe: string) => {
-    const response = await axios.get('https://api.binance.com/api/v3/klines', {
+    const response = await axios.get(`${import.meta.env.VITE_BINANCE_API_URL}/klines`, {
       params: {
         symbol,
         interval: timeframe,
@@ -191,7 +191,7 @@ function App() {
 
         await Promise.all(
           coins.map(async (coin) => {
-            const response = await axios.get(`http://localhost:3000/binance/api/v3/avgPrice?symbol=${coin.symbol}`);
+            const response = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/binance/api/v3/avgPrice?symbol=${coin.symbol}`);
             results[coin.symbol] = parseFloat(response.data.price);
           })
         );
