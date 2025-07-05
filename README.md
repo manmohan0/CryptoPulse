@@ -1,6 +1,6 @@
 ## Features
 
-- Build a simple dashboard UI that displays current prices of 5–10 cryptocurrencies (BTC, ETH, etc.).
+- Built a simple dashboard UI that displays current prices of cryptocurrencies.
 - Uses Binance API to update prices in real-time.
 - Price chart using Tradeview Library that updates live.
 - Option to view price history in different timeframes
