@@ -226,7 +226,7 @@ function App() {
             <div className='col-span-1 text-lg font-bold'>
               {currentCoin?.symbol}
             </div>
-            <div className='col-span-2 text-lg font-mono font-semibold'>
+            <div className={`col-span-2 ${chartData[chartData.length - 1].close - chartData[chartData.length - 2].close > 0 ? "text-green-500" : "text-red-500"} text-lg font-mono font-semibold`}>
               {chartData.length > 0 ? chartData[chartData.length - 1].close.toPrecision(6) : "No data"}
             </div>
             <div className='h-full flex items-center font-mono'>
