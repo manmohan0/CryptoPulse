@@ -1,6 +1,6 @@
 import express from 'express';
 import cors from 'cors';
-import { createProxyMiddleware, Options, Options as proxyOptions } from 'http-proxy-middleware';
+import { createProxyMiddleware, Options as proxyOptions } from 'http-proxy-middleware';
 const app = express();
 
 app.use(cors({
@@ -16,7 +16,6 @@ const proxyOptions = {
     '^/binance': '',
   },
   onProxyRes: (proxyRes: import('http').IncomingMessage, req: Request, res: Response) => {
-    // Inject CORS header manually
     proxyRes.headers['Access-Control-Allow-Origin'] =
       process.env.NODE_ENV === "production"
         ? process.env.FRONTEND
