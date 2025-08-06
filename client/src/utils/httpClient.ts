@@ -2,7 +2,7 @@ import axios from "axios";
 import type { UTCTimestamp } from "lightweight-charts";
 
 export const getHistoricalPrices = async (symbol: string, timeframe: string) => {
-    const response = await axios.get(`${import.meta.env.VITE_BINANCE_API_URL}/klines`, {
+    const response = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/klines`, {
       params: {
         symbol,
         interval: timeframe,
@@ -22,7 +22,7 @@ export const getHistoricalPrices = async (symbol: string, timeframe: string) => 
 };
 
 export const getTickerPrice = async (symbol: string) => {
-    const response = await axios.get(`${import.meta.env.VITE_BINANCE_API_URL}/ticker/price`, {
+    const response = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/ticker/price`, {
       params: {
         symbol,
       },
