@@ -10,7 +10,7 @@ app.use(cors({
 }))
 
 const proxyOptions = {
-  target: 'https://api.binance.com',
+  target: 'https://api.binance.com/api/v3',
   changeOrigin: true,
   pathRewrite: {
     '^/binance': '',
