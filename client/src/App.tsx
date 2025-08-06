@@ -40,7 +40,7 @@ function App() {
 
         await Promise.all(
           coins.map(async (coin) => {
-            const response = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/binance/api/v3/avgPrice?symbol=${coin.symbol}`);
+            const response = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/binance/avgPrice?symbol=${coin.symbol}`);
             results[coin.symbol] = parseFloat(response.data.price);
           })
         );
